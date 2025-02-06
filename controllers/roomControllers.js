@@ -11,7 +11,7 @@ const addRoom = async (req, res) => {
             capacity
         });
 
-        return res.status(201).json({ msg: "Room Added Successfully", room: newRoom });
+        return res.status(200).json({ msg: "Room Added Successfully", room: newRoom });
 
     } catch (error) {
         return res.status(500).json({ msg: "Error Occurred While Creating the Room", error: error.message });

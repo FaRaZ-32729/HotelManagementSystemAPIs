@@ -7,7 +7,7 @@ const loginUser = async (req, res) => {
         const { email, password } = req.body;
         // if (!email || !password) {
         //     return res.status(400).json({ msg: "Email & Password are required" });
-        // }
+        // }    
 
         const findUser = await userModel.findOne({ email });
         if (!findUser) return res.status(404).json({ msg: "User Not Found" });

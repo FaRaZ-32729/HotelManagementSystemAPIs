@@ -8,7 +8,7 @@ const userRouter = require("./routers/userRouters");
 const authRouter = require("./routers/authRouters");
 const roomRouter = require("./routers/roomRouters");
 const bookingRouter = require("./routers/bookingRouters");
-
+const cors = require("cors");
 
 
 const app = express();
@@ -18,6 +18,9 @@ const port = 8000;
 app.use(express.json());
 app.use(cookieParser())
 
+app.use(cors ({
+    origin : "http://localhost:5173",
+}));
 
 app.use("/user" , userRouter);
 app.use("/auth" , authRouter);
