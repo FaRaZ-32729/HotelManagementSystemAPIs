@@ -6,7 +6,7 @@ const roomSchemaValidation = Joi.object({
         "string.min": "Room type must be at least 3 characters",
         "string.max": "Room type cannot exceed 20 characters",
     }),
-    status: Joi.string().valid("available", "booked", "cleaning", "maintenance").messages({
+    status: Joi.string().valid("available", "booked", "cleaning", "under maintenance").messages({
         "string.empty": "Room status is required",
         "any.only": "Status must be one of: available, booked, cleaning, maintenance",
     }),

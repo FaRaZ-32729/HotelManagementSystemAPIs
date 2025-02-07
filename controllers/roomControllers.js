@@ -27,6 +27,15 @@ const getAllRoom = async (req, res) => {
     }
 };
 
+const getSingleRoom = async (req, res) => {
+    try {
+        const room = await roomModel.findById(req.params.id);
+        return res.status(200).json({ room });
+    } catch (error) {
+        return res.status(500).json({ msg: "Error Occurred While Fetching Room", error: error.message });
+    }
+};
+
 const updateRoom = async (req, res) => {
     try {
         const updatedRoom = await roomModel.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
@@ -52,4 +61,4 @@ const deleteRoom = async (req, res) => {
     }
 };
 
-module.exports = { addRoom, getAllRoom, updateRoom, deleteRoom };
+module.exports = { addRoom, getSingleRoom, getAllRoom, updateRoom, deleteRoom };
