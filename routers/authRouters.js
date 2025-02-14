@@ -1,5 +1,5 @@
 const express = require("express");
-const loginUser = require("../controllers/authControllers");
+const {loginUser, logoutUser} = require("../controllers/authControllers");
 const validateLogin = require("../middleWeres/authValidation");
 
 
@@ -7,7 +7,8 @@ const validateLogin = require("../middleWeres/authValidation");
 const router = express.Router();
 
 
-router.post("/login", validateLogin , loginUser);
+router.post("/login",validateLogin , loginUser);
+router.delete("/logout" , logoutUser);
 
 
 module.exports = router;
