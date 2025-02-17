@@ -21,7 +21,7 @@ const loginUser = async (req, res) => {
             sameSite: "strict"
         });
 
-        return res.status(200).json({ msg: "Login Successful", role: findUser.role, subRole: findUser.subRole });
+        return res.status(200).json({ msg: "Login Successful", data:findUser , role: findUser.role, subRole: findUser.subRole });
 
 
     } catch (error) {

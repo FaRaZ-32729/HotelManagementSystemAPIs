@@ -5,9 +5,7 @@ const router = express.Router();
 
 // Admin only route
 router.get("/admin-dashboard", authUser, checkRole(["admin"]), (req, res) => {
-    
     res.json({ msg: "Welcome Admin", user: req.authanticatedUser });
-    
 });
 
 // Staff members only
@@ -27,7 +25,6 @@ router.get("/receptionist-section", authUser, checkRole(["staff"]), checkSubRole
 
 // Guest user route
 router.get("/guest-dashboard", authUser, checkRole(["guest"]), (req, res) => {
-    // console.log("wait-------")
     res.json({ msg: "Welcome Guest", user: req.authanticatedUser });
 });
 
